@@ -40,6 +40,7 @@ class LSTM(nn.Module):
                 self.__setattr__('W_hr_l{}'.format(layer), nn.Parameter(torch.Tensor(proj_size, hidden_size)))
         
         # TODO: Handle bidirectional case
+        # TODO: Handle the rest of proj_size
         self.init_params()
     
     def init_params(self):
@@ -108,7 +109,7 @@ if __name__ == '__main__':
     kwargs = {
         'input_size': input_size,
         'hidden_size': hidden_size,
-        'num_layers': 1,
+        'num_layers': 3,
         'batch_first': True,
         'proj_size': 0,
         'dropout': 0.5
